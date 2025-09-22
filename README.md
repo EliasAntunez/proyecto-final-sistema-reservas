@@ -47,9 +47,9 @@ Este proyecto está bajo la licencia MIT. Ver el archivo [LICENSE](LICENSE) para
 ---
 
 ## 📈 Estado del proyecto
-Actualmente en la fase **Elaboración (UP)** – documentación y modelado.  
+Actualmente en la fase **Diseño (UP)** – documentación y modelado.  
 Próxima etapa: **Construcción del sistema con Django**.  
 
-📅 Última actualización: Agosto 2025
+📅 Última actualización: Septiembre 2025
 
 
