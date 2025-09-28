@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block title %}Panel Cliente - {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">
+                    <i class="fas fa-home me-2"></i>Bienvenido al Sistema de Reservas
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-success">
+                    <h5>
+                        <i class="fas fa-user me-2"></i>
+                        ¡Hola, {{ user.nombre_completo }}!
+                        <span class="badge bg-success ms-2">Cliente</span>
+                    </h5>
+                    <p class="mb-0">Desde aquí puedes gestionar tus reservas deportivas.</p>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-primary">
+                            <div class="card-body text-center">
+                                <i class="fas fa-plus-circle fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Nueva Reserva</h5>
+                                <p class="card-text">Reserva espacios deportivos disponibles.</p>
+                                <a href="#" class="btn btn-primary" title="Próximamente">
+                                    <i class="fas fa-calendar-plus me-1"></i>Reservar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-success">
+                            <div class="card-body text-center">
+                                <i class="fas fa-calendar-check fa-3x text-success mb-3"></i>
+                                <h5 class="card-title">Mis Reservas</h5>
+                                <p class="card-text">Ve y gestiona tus reservas actuales.</p>
+                                <a href="#" class="btn btn-success" title="Próximamente">
+                                    <i class="fas fa-list me-1"></i>Ver Reservas
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-info">
+                            <div class="card-body text-center">
+                                <i class="fas fa-user-edit fa-3x text-info mb-3"></i>
+                                <h5 class="card-title">Mi Perfil</h5>
+                                <p class="card-text">Actualiza tu información personal.</p>
+                                <a href="#" class="btn btn-info" title="Próximamente">
+                                    <i class="fas fa-edit me-1"></i>Editar Perfil
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                <h6 class="mb-0">
+                    <i class="fas fa-info-circle me-2"></i>Tu Información
+                </h6>
+            </div>
+            <div class="card-body">
+                <p><strong>Usuario:</strong> {{ user.username }}</p>
+                <p><strong>Nombre:</strong> {{ user.nombre_completo }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                {% if user.telefono %}
+                <p><strong>Teléfono:</strong> {{ user.telefono }}</p>
+                {% endif %}
+                <p><strong>Miembro desde:</strong> {{ user.date_joined|date:"d/m/Y" }}</p>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header bg-warning text-dark">
+                <h6 class="mb-0">
+                    <i class="fas fa-lightbulb me-2"></i>Accesos Rápidos
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="#" class="btn btn-outline-primary btn-sm" title="Próximamente">
+                        <i class="fas fa-search me-1"></i>Buscar Espacios
+                    </a>
+                    <a href="#" class="btn btn-outline-success btn-sm" title="Próximamente">
+                        <i class="fas fa-history me-1"></i>Historial
+                    </a>
+                    <a href="#" class="btn btn-outline-info btn-sm" title="Próximamente">
+                        <i class="fas fa-question-circle me-1"></i>Ayuda
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block extra_css %}
+<style>
+    .card h-100 {
+        transition: transform 0.2s ease;
+    }
+    
+    .card h-100:hover {
+        transform: translateY(-3px);
+    }
+    
+    .fa-3x {
+        margin-bottom: 1rem;
+    }
+</style>
+{% endblock %}
+{% endblock %}
