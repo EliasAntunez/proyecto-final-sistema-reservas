@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block title %}Panel Administrador - {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-warning text-dark">
+                <h3 class="mb-0">
+                    <i class="fas fa-crown me-2"></i>Panel de Administración del Complejo
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    <h5>
+                        <i class="fas fa-user-shield me-2"></i>
+                        ¡Hola, {{ user.nombre_completo }}!
+                        <span class="badge bg-warning text-dark ms-2">Administrador</span>
+                    </h5>
+                    <p class="mb-0">Desde aquí puedes administrar todo el complejo deportivo.</p>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-warning">
+                            <div class="card-body text-center">
+                                <i class="fas fa-building fa-3x text-warning mb-3"></i>
+                                <h5 class="card-title">Gestionar Espacios</h5>
+                                <p class="card-text">Administrar canchas y espacios.</p>
+                                <a href="#" class="btn btn-warning" title="Próximamente">
+                                    <i class="fas fa-edit me-1"></i>Gestionar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-info">
+                            <div class="card-body text-center">
+                                <i class="fas fa-chart-bar fa-3x text-info mb-3"></i>
+                                <h5 class="card-title">Reportes</h5>
+                                <p class="card-text">Ver estadísticas y reportes.</p>
+                                <a href="#" class="btn btn-info" title="Próximamente">
+                                    <i class="fas fa-chart-line me-1"></i>Ver Reportes
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100 border-success">
+                            <div class="card-body text-center">
+                                <i class="fas fa-user-plus fa-3x text-success mb-3"></i>
+                                <h5 class="card-title">Crear Empleado</h5>
+                                <p class="card-text">Dar de alta nuevos empleados.</p>
+                                <a href="{% url 'admin:usuarios_administrador_add' %}" class="btn btn-success">
+                                    <i class="fas fa-plus me-1"></i>Nuevo Empleado
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100 border-danger">
+                            <div class="card-body text-center">
+                                <i class="fas fa-cogs fa-3x text-danger mb-3"></i>
+                                <h5 class="card-title">Configuración</h5>
+                                <p class="card-text">Configurar políticas y horarios.</p>
+                                <a href="#" class="btn btn-danger" title="Próximamente">
+                                    <i class="fas fa-wrench me-1"></i>Configurar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                <h6 class="mb-0">
+                    <i class="fas fa-info-circle me-2"></i>Tu Información
+                </h6>
+            </div>
+            <div class="card-body">
+                <p><strong>Usuario:</strong> {{ user.username }}</p>
+                <p><strong>Nombre:</strong> {{ user.nombre_completo }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                {% if user.telefono %}
+                <p><strong>Teléfono:</strong> {{ user.telefono }}</p>
+                {% endif %}
+                <p><strong>Administrador desde:</strong> {{ user.date_joined|date:"d/m/Y" }}</p>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header bg-warning text-dark">
+                <h6 class="mb-0">
+                    <i class="fas fa-lightbulb me-2"></i>Accesos Rápidos
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="{% url 'admin:index' %}" class="btn btn-outline-primary btn-sm">
+                        <i class="fas fa-cogs me-1"></i>Django Admin
+                    </a>
+                    <a href="#" class="btn btn-outline-warning btn-sm" title="Próximamente">
+                        <i class="fas fa-building me-1"></i>Configurar Complejo
+                    </a>
+                    <a href="#" class="btn btn-outline-info btn-sm" title="Próximamente">
+                        <i class="fas fa-users me-1"></i>Lista Empleados
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block extra_css %}
+<style>
+    .card h-100 {
+        transition: transform 0.2s ease;
+    }
+    
+    .card h-100:hover {
+        transform: translateY(-3px);
+    }
+    
+    .fa-3x {
+        margin-bottom: 1rem;
+    }
+</style>
+{% endblock %}
+{% endblock %}
