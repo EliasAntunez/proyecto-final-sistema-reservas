@@ -12,7 +12,8 @@ class RegistroClienteForm(forms.ModelForm):
         label='Contraseña',
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Contraseña (mínimo 8 caracteres) *'
+            'placeholder': 'Contraseña (mínimo 8 caracteres) *',
+            'autocomplete': 'new-password'  # Evita autocompletar
         }),
         min_length=8
     )
@@ -20,7 +21,8 @@ class RegistroClienteForm(forms.ModelForm):
         label='Confirmar contraseña',
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Confirmar contraseña *'
+            'placeholder': 'Confirmar contraseña *',
+            'autocomplete': 'new-password'  # Evita autocompletar
         })
     )
     
@@ -30,23 +32,28 @@ class RegistroClienteForm(forms.ModelForm):
         widgets = {
             'username': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Nombre de usuario (único) *'
+                'placeholder': 'Nombre de usuario (único) *',
+                'autocomplete': 'off'  # Evita autocompletar
             }),
             'nombre': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Nombre *'
+                'placeholder': 'Nombre *',
+                'autocomplete': 'off'
             }),
             'apellido': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Apellido *'
+                'placeholder': 'Apellido *',
+                'autocomplete': 'off'
             }),
             'email': forms.EmailInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Correo electrónico *'
+                'placeholder': 'Correo electrónico *',
+                'autocomplete': 'off'
             }),
             'telefono': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Teléfono (opcional)'
+                'placeholder': 'Teléfono (opcional)',
+                'autocomplete': 'off'
             }),
         }
     
@@ -85,13 +92,15 @@ class LoginForm(AuthenticationForm):
     username = forms.CharField(
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Nombre de usuario *'
+            'placeholder': 'Nombre de usuario *',
+            'autocomplete': 'username'
         })
     )
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Contraseña *'
+            'placeholder': 'Contraseña *',
+            'autocomplete': 'off'  # Evita autocompletar
         })
     )
 

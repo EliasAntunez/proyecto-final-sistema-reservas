@@ -159,13 +159,6 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
                                 <i class="fas fa-user me-1"></i>{{ user.nombre_completo }}
-                                {% if user.es_administrador %}
-                                    <span class="badge bg-warning text-dark ms-1">Admin</span>
-                                {% elif user.es_empleado %}
-                                    <span class="badge bg-info ms-1">Empleado</span>
-                                {% else %}
-                                    <span class="badge bg-success ms-1">Cliente</span>
-                                {% endif %}
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
